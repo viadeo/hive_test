@@ -24,6 +24,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hive.conf.HiveConf;
+import org.apache.hadoop.hive.ql.exec.MapredContext;
 import org.apache.hadoop.mapred.HadoopTestCase;
 
 public abstract class HiveTestBase extends HadoopTestCase {
@@ -71,7 +72,7 @@ public abstract class HiveTestBase extends HadoopTestCase {
   public void setUp() throws Exception {
     super.setUp();
 
-    String jarFile = org.apache.hadoop.hive.ql.exec.MapRedTask.class.getProtectionDomain().getCodeSource().getLocation().getFile();
+    String jarFile = MapredContext.class.getProtectionDomain().getCodeSource().getLocation().getFile();
     System.setProperty(HiveConf.ConfVars.HIVEJAR.toString(), jarFile);
 
     Path rootDir = getDir(ROOT_DIR);

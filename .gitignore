@@ -1,0 +1,6 @@
+.idea/
+.pom.xml.swp
+derby.log
+hive_test.iml
+target/
+testing/
